@@ -1,4 +1,13 @@
 
+#' Sequence of Spline Terms
+#'
+#' @param data - matrix or dataframe containing only spline terms
+#' @param ng - length of sequence
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_X_seq = function(data, ng){
   p = ncol(data) # Get number of variables in data
 
