@@ -11,14 +11,8 @@ get_logits = function(new_data){
   p = ncol(new_data)
   n = nrow(new_data)
 
-  fHat = matrix(0, n, p)
-  yrange = matrix(0, p, 2)
-
-  for(i in 1:p){
-    fHat[ , i] = predict(fit, newdata = new_data[ , i], type = "link")
-    yrange[i, 1] = min(fHat[ , i])
-    yrange[i, 2] = max(fHat[ , i])
-  }
+  fHat = predict(fit, newdata = new_data, type = "link")
+  yrange = c(min(fHat), max(fHat)
 
   return(list(fHat = fHat, yrange = yrange))
 }
