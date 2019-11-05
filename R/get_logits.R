@@ -1,7 +1,7 @@
 
-#' Title
+#' Prediction for Logits
 #'
-#' @param new_data
+#' @param new_data - dataframe or matrix used for prediction
 #'
 #' @return
 #' @export
