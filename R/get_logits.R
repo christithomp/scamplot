@@ -14,7 +14,7 @@ get_logits = function(new_data){
   # Make predictions for the logit
   fHat = predict(fit, newdata = new_data, type = "link")
   # Calculate range of y values
-  yrange = c(min(fHat), max(fHat)
+  yrange = c(min(fHat), max(fHat))
 
   # Return list containing fHat and yrange
   return(list(fHat = fHat, yrange = yrange))
