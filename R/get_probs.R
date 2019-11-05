@@ -1,4 +1,12 @@
 
+#' Predictions for Probabilities
+#'
+#' @param new_data - dataframe or matrix used for prediction
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_probs = function(new_data){
   p = ncol(new_data) # Get number of columns of data
   n = nrow(new_data) # Get number of rows of data
