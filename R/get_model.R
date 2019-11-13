@@ -9,6 +9,11 @@
 #' @export
 #'
 #' @examples
+#' y = "price"
+#' smooth_terms = c("sq_ft", "safety")
+#' linear_terms = c("num_bedrooms", "num_bathrooms")
+#'
+#' get_model(y, smooth_terms, linear_terms)
 get_model = function(y, smooth_terms, linear_terms){
   p_smooth = length(smooth_terms) # get numer of spline terms
   p_linear = length(linear_terms) # get number of linear terms
