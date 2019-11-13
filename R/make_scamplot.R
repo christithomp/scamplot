@@ -9,7 +9,9 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
     paste("Error: some of the smooth_terms supplied are not variables in the data supplied")
   }
   # Check if linear_terms are columns in data
-
+  if (any(!(linear_terms %in% colnames(data)))){
+    paste("Error: some of the linear_terms supplied are not variables in the data supplied")
+  }
   # Check if type is of the right form
   if (type != "response" | type != "link"){
     paste("Error: type argument supplied is not a string that contains link or response")
