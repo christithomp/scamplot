@@ -1,4 +1,14 @@
 
+#' Title
+#'
+#' @param y - a string of the name of the predictor variable
+#' @param smooth_terms - a vector of strings of the names of the spline terms
+#' @param linear_terms - a vector of strings of the names of the linear terms
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_model = function(y, smooth_terms, linear_terms){
   p_smooth = ncol(smooth_terms) # get numer of spline terms
   p_linear = ncol(linear_terms) # get number of linear terms
@@ -20,4 +30,6 @@ get_model = function(y, smooth_terms, linear_terms){
     var = names(linear_terms)[i]
     scam_model = paste(scam_model, var, sep = " + ")
   }
+  # Return string of call to model
+  return(scam_model)
 }
