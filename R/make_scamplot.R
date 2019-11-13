@@ -5,7 +5,9 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
     paste("Error: y argument supplied is not a variable in the data supplied")
   }
   # Check if smooth_terms are columns in data
-
+  if (any(!(smooth_terms %in% colnames(data)))){
+    paste("Error: some of the smooth_terms supplied are not variables in the data supplied")
+  }
   # Check if linear_terms are columns in data
 
   # Check if type is of the right form
