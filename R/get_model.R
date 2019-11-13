@@ -15,7 +15,7 @@ get_model = function(y, smooth_terms, linear_terms){
 
   # Begin building call to model
   var = paste("s(", smooth_terms[1], ")", sep = "")
-  scam_model = paste("y ~ ", var, sep = "")
+  scam_model = paste(y, var, sep = " ~ ")
 
   # Loop over adding each spline term to model
   if (p_smooth > 1){
