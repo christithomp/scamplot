@@ -1,7 +1,9 @@
 
 make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Prediction Plot"){
   # Check if y is just one vector
-
+  if (!is.vector(y)){
+    paste("Error: Argument y supplied is not a vector")
+  }
   # Check if y is a column in data
 
   # Check if smooth_terms are coumns in data
