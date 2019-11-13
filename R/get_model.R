@@ -1,5 +1,5 @@
 
-#' Title
+#' Create call to model argument
 #'
 #' @param y - a string of the name of the predictor variable
 #' @param smooth_terms - a vector of strings of the names of the spline terms
@@ -9,8 +9,8 @@
 #' @export
 #'
 #' @examples
-#' y = "price"
-#' smooth_terms = c("sq_ft", "safety")
+#' y = "house_price"
+#' smooth_terms = c("sq_ft")
 #' linear_terms = c("num_bedrooms", "num_bathrooms")
 #'
 #' get_model(y, smooth_terms, linear_terms)
