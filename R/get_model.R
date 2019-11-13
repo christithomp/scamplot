@@ -8,9 +8,11 @@ get_model = function(y, smooth_terms, linear_terms){
   scam_model = "y ~ var"
 
   # Loop over adding each spline term to model
-  for (i in 2:p_smooth){
-    var = paste("s(", names(smooth_terms)[i], ")", sep = "")
-    scam_model = paste(scam_model, var, sep = " + ")
+  if (p_smooth > 1){
+    for (i in 2:p_smooth){
+      var = paste("s(", names(smooth_terms)[i], ")", sep = "")
+      scam_model = paste(scam_model, var, sep = " + ")
+    }
   }
 
   # Loop over adding each linear term to model
