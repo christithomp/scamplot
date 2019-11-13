@@ -1,4 +1,13 @@
 
+#' Title
+#'
+#' @param new_data - dataframe or matrix used for prediction
+#' @param type - string that gives type of prediction (either "response" or "link")
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_pred = function(new_data, type){
   p = ncol(new_data) # Get number of columns of data
   n = nrow(new_data) # Get number of rows of data
