@@ -14,11 +14,13 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
   }
   # Check if type is of the right form
   if (type != "response" | type != "link"){
-    paste("Error: type argument supplied is not a string that contains link or response")
+    paste("Error: type argument supplied is not a string that contains either link or response")
   }
   # Check if title is string
   if(!is.string(title)){
     paste("Error: title argument supplied is not a strong")
   }
+
+
 
 }
