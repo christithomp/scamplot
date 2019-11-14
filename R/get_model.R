@@ -5,7 +5,7 @@
 #' @param smooth_terms - a vector of strings of the names of the spline terms
 #' @param linear_terms - a vector of strings of the names of the linear terms
 #'
-#' @return
+#' @return - string of call to model
 #' @export
 #'
 #' @examples
