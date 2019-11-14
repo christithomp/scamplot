@@ -1,5 +1,5 @@
 
-#' Title
+#' Predictive Plot for Model
 #'
 #' @param x - dataframe or matrix containing spline terms
 #' @param fHat - matrix of prediction values
