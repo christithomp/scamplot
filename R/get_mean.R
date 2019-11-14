@@ -4,7 +4,7 @@
 #' @param data - dataframe or matrix containing all variables in the model
 #' @param ng - length of the sequence
 #'
-#' @return
+#' @return - matrix of mean values
 #' @export
 #'
 #' @examples
