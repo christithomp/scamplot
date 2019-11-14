@@ -4,7 +4,7 @@
 #' @param new_data - dataframe or matrix used for prediction
 #' @param type - string that gives type of prediction (either "response" or "link")
 #'
-#' @return
+#' @return - return list of predictions and range of y axis values for plot
 #' @export
 #'
 #' @examples
