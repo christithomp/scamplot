@@ -4,7 +4,7 @@
 #' @param data - matrix or dataframe containing only spline terms
 #' @param ng - length of sequence
 #'
-#' @return
+#' @return - matrix of sequenced spline terms
 #' @export
 #'
 #' @examples
@@ -16,6 +16,6 @@ get_X_seq = function(data, ng){
     # Sequence each X value from the min to the max ng times
     X_seq[ , i] = seq(min(data[ , i]), max(data[ , i]), length = ng)
   }
-  # Return matrix of means
+  # Return matrix of equences spline terms
   return(var_means)
 }
