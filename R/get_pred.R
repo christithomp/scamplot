@@ -8,12 +8,12 @@
 #' @export
 #'
 #' @examples
-get_pred = function(new_data, type){
+get_pred = function(new_data){
   p = ncol(new_data) # Get number of columns of data
   n = nrow(new_data) # Get number of rows of data
 
   # Make predictions for the probabilities
-  fHat = predict(fit, newdata = new_data, type = type, se = TRUE)
+  fHat = predict(fit, newdata = new_data, se = TRUE)
   # Calculate lower and upper bound of plot
   lb = fHat$fit - qnorm(0.975) * fHat$se.fit
   ub = fHat$fit + qnorm(0.975) * fHat$se.fit
