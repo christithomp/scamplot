@@ -13,9 +13,10 @@ get_pred = function(new_data, type){
   n = nrow(new_data) # Get number of rows of data
 
   # Make predictions for the probabilities
-  fHat = predict(fit, newdata = new_data, type = type)
+  fHat = predict(fit, newdata = new_data, type = type, se = TRUE)
   # Calculate range of y values
-  yrange = c(min(fHat), max(fHat))
+  lb = fHat$fit - qnorm(0.975) * fHat$se.fit
+  ub = fHat$fit + qnorm(0.975) * fHat$se.fit
 
   # Return list containing fHat and yrange
   return(list(fHat = fHat, yrange = yrange))
