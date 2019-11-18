@@ -3,7 +3,8 @@
 #'
 #' @param x - dataframe or matrix containing spline terms
 #' @param fHat - matrix of prediction values
-#' @param yrange - matrix containing minimum and maximum for y axis
+#' @param lb- mvector containing  lower bound of confidence interval
+#' @param ub -vector containing upper bound of confidence interval
 #' @param title - string for title of the plot
 #' @param x_lab - string for title of x axis
 #' @param y_lab - string for title of y axis
@@ -13,7 +14,7 @@
 #' @export
 #'
 #' @examples
-get_plot = function(x, fHat, yrange, title, x_lab, y_lab){
+get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab){
   p = ncol(data) # Get number of columns of data
 
   # Plot each variable
