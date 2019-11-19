@@ -1,5 +1,5 @@
 
-make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Prediction Plot"){
+make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, title = "Prediction Plot"){
   # Check if y is a column in the data
   if (y %in% colnames(data)){
     paste("Error: y argument supplied is not a variable in the data supplied")
@@ -20,6 +20,8 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
   if(!is.string(title)){
     paste("Error: title argument supplied is not a string")
   }
+
+  # Check if shape_type contains string of acceptable values
 
   # Convert all columns to numeric
   new_data = apply(data, 2, function(x) if(is.character(x)) as.numeric(as.factor(x)) else x)
