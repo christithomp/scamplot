@@ -8,12 +8,12 @@
 #' @param title - string for title of the plot
 #' @param x_lab - string for title of x axis
 #' @param y_lab - string for title of y axis
-#'
+#' @param type - string indicating "link" or "response"
 #' @return
 #' @export
 #'
 #' @examples
-get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab){
+get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, type){
   p = ncol(data) # Get number of columns of data
   #Function to calculate expit of x
   expit <- function(x) return(1/(1 + exp(-x)))
