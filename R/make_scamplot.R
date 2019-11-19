@@ -24,7 +24,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   # Check if shape_type contains string of acceptable values
   shapes = c("cr", "mpi", "mpd", "mdcx", "micx", "mdcv", "micv")
   if (any(!(shape_types %in% shapes))){
-    paste("Error: shape_types supplied not supported in scam package")
+    stop(paste("Error: shape_types supplied not supported in scam package"))
   }
 
   # Convert all columns to numeric
