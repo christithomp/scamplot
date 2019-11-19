@@ -59,13 +59,20 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
 
   for (i in 1:p_seq){
     # Create new data for prediction
-    xg = X_seq[ , p_seq] #Get spline term of interest
-    x_name = smooth_terms[p_seq] # Identify name of first spline term
-    new_mean_seq = mean_seq # Make copy of mean_seq to manipulate
-    new_mean_seq$x_name = NULL # Get rid of X column to add X sequence instead
 
-    newdata = data.frame(xg, new_mean_seq) # Create new data for prediction
-    Xpred = get_pred(fit, newdata) # Get fHat, ub, and lb for CI
+    #Get spline term of interest
+    xg = X_seq[ , p_seq]
+    # Identify name of first spline term
+    x_name = smooth_terms[p_seq]
+    # Make copy of mean_seq to manipulate
+    new_mean_seq = mean_seq
+    # Get rid of X column to add X sequence instead
+    new_mean_seq$x_name = NULL
+
+    # Create new data for prediction
+    newdata = data.frame(xg, new_mean_seq)
+    # Get fHat, ub, and lb for CI
+    Xpred = get_pred(fit, newdata)
 
     # Create plot of spline term
     get_plot(xg, Xpred$fHat, Xpred$lb, Xpred$ub, title, xlab = x_name, ylab = y, type)
