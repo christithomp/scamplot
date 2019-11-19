@@ -9,13 +9,18 @@
 #'
 #' @examples
 get_mean = function(data, ng){
-  p = ncol(data) # Get number of variables in data
+  # Get number of variables in data
+  p = ncol(data)
 
-  var_means = matrix(0, ng, p) # Create empty matrix to store means
+  # Create empty matrix to store means
+  var_means = matrix(0, ng, p)
+
+  # Loop over variables to sequence by mean
   for (i in 1:p){
     # Find mean of each variable and repeat that ng times
-    var_means[ , i] = rep(mean(data[ , i]), ng)
+    var_means[ , i] = rep(stats::mean(data[ , i]), ng)
   }
+
   # Return matrix of means
   return(var_means)
 }
