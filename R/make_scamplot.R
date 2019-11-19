@@ -45,12 +45,17 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   new_data = apply(data, 2, function(x) if(is.character(x)) as.numeric(as.factor(x)) else x)
 
   #Fit model for new_data
-  mdl = get_model(y, smooth_terms, linear_terms, shape_types) # Get model call
-  fit = scam::scam(mdl, family = "binomial", data = new_data) # Fit actual model
+  # Get model call
+  mdl = get_model(y, smooth_terms, linear_terms, shape_types)
+  # Fit actual model
+  fit = scam::scam(mdl, family = "binomial", data = new_data)
 
-  mean_seq = get_means(new_data[ , c(smooth_terms, linear_terms)]) # Get means of all covariates
-  X_seq = get_X_seq(new_data[ , smooth_terms]) #Get sequence of all smooth terms
-  p_seq = length(smooth_terms) # Get number of smooth terms
+  # Get means of all covariates
+  mean_seq = get_means(new_data[ , c(smooth_terms, linear_terms)])
+  #Get sequence of all smooth terms
+  X_seq = get_X_seq(new_data[ , smooth_terms])
+  # Get number of smooth terms
+  p_seq = length(smooth_terms)
 
   for (i in 1:p_seq){
     # Create new data for prediction
