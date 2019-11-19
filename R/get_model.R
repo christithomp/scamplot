@@ -11,9 +11,9 @@
 #'
 #' @examples
 #' y = "house_price"
-#' smooth_terms = c("sq_ft", "location")
+#' smooth_terms = c("sq_ft", "distance_from_work")
 #' linear_terms = c("num_bedrooms", "num_bathrooms")
-#' shape_type = c("s", "mpi")
+#' shape_type = c("mpi", "mpd")
 #'
 #' get_model(y, smooth_terms, linear_terms, shape_type)
 get_model = function(y, smooth_terms, linear_terms, shape_type){
@@ -21,13 +21,13 @@ get_model = function(y, smooth_terms, linear_terms, shape_type){
   p_linear = length(linear_terms) # get number of linear terms
 
   # Begin building call to model
-  var = paste(shape_type[1], "(", smooth_terms[1], ")", sep = "")
+  var = paste("s(", smooth_terms[1], ", bs = '", shape_type[1], "')", sep = "")
   scam_model = paste(y, var, sep = " ~ ")
 
   # Loop over adding each spline term to model
   if (p_smooth > 1){
     for (i in 2:p_smooth){
-      var = paste(shape_type[i], "(", smooth_terms[i], ")", sep = "")
+      var = paste("s(", smooth_terms[i], ", bs = '", shape_type[i], "')", sep = "")
       scam_model = paste(scam_model, var, sep = " + ")
     }
   }
