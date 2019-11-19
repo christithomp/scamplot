@@ -9,13 +9,18 @@
 #'
 #' @examples
 get_X_seq = function(data, ng){
-  p = ncol(data) # Get number of variables in data
+  # Get number of variables in data
+  p = ncol(data)
 
-  X_seq = matrix(0, ng, p) # Create empty matrix to store sequences
+  # Create empty matrix to store sequences
+  X_seq = matrix(0, ng, p)
+
+  # Loop to sequence each spline term
   for (i in 1:p){
     # Sequence each X value from the min to the max ng times
     X_seq[ , i] = seq(min(data[ , i]), max(data[ , i]), length = ng)
   }
+
   # Return matrix of equences spline terms
   return(var_means)
 }
