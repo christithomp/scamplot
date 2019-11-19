@@ -20,6 +20,12 @@ get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, type){
 
   plot(0, type = 'n', xlab = x_lab[i], ylab = y_lab, xlim = c(0, 1), ylim = c(0, 1),
        type = "l", lwd = 2, main = title)
-  polygon(c(x, rev(x)), c(expit(lb)), rev(expit(ub)), col = 'palegreen', border = FALSE)
-  lines(x, expit(fHat), col = "darkgreen", lwd = 2)
+  if (type == "link"){
+    polygon(c(x, rev(x)), c(lb), rev(ub), col = 'palegreen', border = FALSE)
+    lines(x, fHat, col = "darkgreen", lwd = 2)
+  }
+  else{
+    polygon(c(x, rev(x)), c(expit(lb)), rev(expit(ub)), col = 'palegreen', border = FALSE)
+    lines(x, expit(fHat), col = "darkgreen", lwd = 2)
+  }
 }
