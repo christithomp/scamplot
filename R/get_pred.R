@@ -10,8 +10,10 @@
 #'
 #' @examples
 get_pred = function(fit, new_data){
-  p = ncol(new_data) # Get number of columns of data
-  n = nrow(new_data) # Get number of rows of data
+  # Get number of columns of data
+  p = ncol(new_data)
+  # Get number of rows of data
+  n = nrow(new_data)
 
   # Make predictions for the probabilities
   fHat = predict(fit, newdata = new_data, se = TRUE)
