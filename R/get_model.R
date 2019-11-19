@@ -4,17 +4,18 @@
 #' @param y - a string of the name of the predictor variable
 #' @param smooth_terms - a vector of strings of the names of the spline terms
 #' @param linear_terms - a vector of strings of the names of the linear terms
+#' @param shape_type - a vector containing the shape constraints for the spline (in the same order as smooth_terms)
 #'
 #' @return - string of call to model
 #' @export
 #'
 #' @examples
 #' y = "house_price"
-#' smooth_terms = c("sq_ft")
+#' smooth_terms = c("sq_ft", "location")
 #' linear_terms = c("num_bedrooms", "num_bathrooms")
 #'
 #' get_model(y, smooth_terms, linear_terms)
-get_model = function(y, smooth_terms, linear_terms){
+get_model = function(y, smooth_terms, linear_terms, shape_type){
   p_smooth = length(smooth_terms) # get numer of spline terms
   p_linear = length(linear_terms) # get number of linear terms
 
