@@ -25,7 +25,8 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
   new_data = apply(data, 2, function(x) if(is.character(x)) as.numeric(as.factor(x)) else x)
 
   #Fit model for new_data
-  mdl = get_model(y, smooth_terms, linear_terms)
+  mdl = get_model(y, smooth_terms, linear_terms) # Get model call
+  fit = scam::scam(mdl, family = "binomial", data = new_data) # Fit actual model
 
   mean_seq = get_means(new_data[ , c(smooth_terms, linear_terms)]) # Get means of all covariates
   X_seq = get_X_seq(new_data[ , smooth_terms]) #Get sequence of all smooth terms
