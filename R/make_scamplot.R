@@ -21,6 +21,8 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
     paste("Error: title argument supplied is not a string")
   }
 
+
+
   mean_seq = get_means(data[ , c(smooth_terms, linear_terms)]) # Get means of all covariates
   X_seq = get_X_seq(data[ , smooth_terms]) #Get sequence of all smooth terms
   p_seq = length(smooth_terms) # Get number of smooth terms
@@ -35,5 +37,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
     newdata = data.frame(xg, new_mean_seq) # Create new data for prediction
     Xpred = get_pred(newdata) # Get fHat, ub, and lb for CI
 
+    # Create plot of spline term
+    get_plot(xg, Xpred$fHat, Xpred$lb, Xpred$ub, title, xlab = x_name, ylab = y)
   }
 }
