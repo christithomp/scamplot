@@ -1,6 +1,7 @@
 
 #' Title
 #'
+#' @param fit - model used for making predictions
 #' @param new_data - dataframe or matrix used for prediction
 #' @param type - string that gives type of prediction (either "response" or "link")
 #'
@@ -8,7 +9,7 @@
 #' @export
 #'
 #' @examples
-get_pred = function(new_data){
+get_pred = function(fit, new_data){
   p = ncol(new_data) # Get number of columns of data
   n = nrow(new_data) # Get number of rows of data
 
