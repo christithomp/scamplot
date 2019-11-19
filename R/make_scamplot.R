@@ -18,9 +18,18 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
   }
   # Check if title is string
   if(!is.string(title)){
-    paste("Error: title argument supplied is not a strong")
+    paste("Error: title argument supplied is not a string")
   }
 
+  mean_seq = get_means(data[ , c(smooth_terms, linear_terms)]) # Get means of all covariates
+  X_seq = get_X_seq(data[ , smooth_terms]) #Get sequence of all smooth terms
+  p_seq = length(smooth_terms) # Get number of smooth terms
 
-
+  for (i in 1:p_seq){
+    x_name = smooth_terms[p_seq] # Identify name of first spline term
+    new_mean_seq = mean_seq # Make copy of mean_seq to manipulate
+    new_mean_seq$x_name = NULL # Get rid of X column to add X sequence instead
+    newdata = data.frame(X_seq[ , p_seq], new_mean_seq) # Create new data for prediction
+    Xpred = get_pred(newdata) # Get fHat, ub, and lb for CI
+  }
 }
