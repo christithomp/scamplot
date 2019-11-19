@@ -26,10 +26,14 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
   p_seq = length(smooth_terms) # Get number of smooth terms
 
   for (i in 1:p_seq){
+    # Create new data for prediction
+    xg = X_seq[ , p_seq] #Get spline term of interest
     x_name = smooth_terms[p_seq] # Identify name of first spline term
     new_mean_seq = mean_seq # Make copy of mean_seq to manipulate
     new_mean_seq$x_name = NULL # Get rid of X column to add X sequence instead
-    newdata = data.frame(X_seq[ , p_seq], new_mean_seq) # Create new data for prediction
+
+    newdata = data.frame(xg, new_mean_seq) # Create new data for prediction
     Xpred = get_pred(newdata) # Get fHat, ub, and lb for CI
+
   }
 }
