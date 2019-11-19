@@ -1,4 +1,18 @@
 
+#' Create Prediction Plot of SCAM
+#'
+#' @param data - data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model
+#' @param y - string containing name of depednent variable in model
+#' @param smooth_terms - vector of strings containing names of independent variables to be fit as splines in the model
+#' @param linear_terms - vector of strings containing names of independent variables to be fit as linear terms in the model
+#' @param shape_type - vector of strings containing the shape constraints for the spline (in the same order as smooth_terms). Can only contain shape constraints that the scam function supports
+#' @param type - string indicating "link" or "response"
+#' @param title - optional string containing title of plot
+#'
+#' @return
+#' @export
+#'
+#' @examples
 make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, title = "Prediction Plot"){
   # Check if y is a column in the data
   if (y %in% colnames(data)){
