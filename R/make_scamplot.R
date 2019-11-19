@@ -40,7 +40,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, type, title = "Pre
     new_mean_seq$x_name = NULL # Get rid of X column to add X sequence instead
 
     newdata = data.frame(xg, new_mean_seq) # Create new data for prediction
-    Xpred = get_pred(newdata) # Get fHat, ub, and lb for CI
+    Xpred = get_pred(fit, newdata) # Get fHat, ub, and lb for CI
 
     # Create plot of spline term
     get_plot(xg, Xpred$fHat, Xpred$lb, Xpred$ub, title, xlab = x_name, ylab = y)
