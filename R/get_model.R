@@ -1,5 +1,5 @@
 
-#' Create call to model argument
+#' Create Formula for Call to Model
 #'
 #' @param y - a string of the name of the predictor variable
 #' @param smooth_terms - a vector of strings of the names of the spline terms
