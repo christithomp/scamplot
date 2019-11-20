@@ -1,11 +1,11 @@
 
-#' Title
+#' Create Predicted Values + Upper and Lower Bounds for Confidence Interval
 #'
 #' @param fit - model used for making predictions
 #' @param new_data - dataframe or matrix used for prediction
 #' @param type - string that gives type of prediction (either "response" or "link")
 #'
-#' @return - return list of predictions and lower and upper bounds of confidence interval
+#' @return - list of predictions and lower and upper bounds of confidence interval
 #' @export
 #'
 #' @examples
