@@ -35,10 +35,11 @@ get_pred = function(fit, new_data){
   n = nrow(new_data)
 
   # Make predictions for the probabilities
-  fHat = predict(fit, newdata = new_data, se = TRUE)
+  pred = predict(fit, newdata = new_data, se = TRUE)
+  fHat = pred$fit
   # Calculate lower and upper bound of plot
-  lb = fHat$fit - qnorm(0.975) * fHat$se.fit
-  ub = fHat$fit + qnorm(0.975) * fHat$se.fit
+  lb = fHat - qnorm(0.975) * pred$se.fit
+  ub = fHat + qnorm(0.975) * pred$se.fit
 
   # Return list containing fHat predictions, lower bound, and upper bound
   return(list(fHat = fHat, lb = lb, ub = ub))
