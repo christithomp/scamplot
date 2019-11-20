@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' #Set length of x sequence
+#' #Set length of sequence
 #' n = 1001
 #'
 #' #Load data
