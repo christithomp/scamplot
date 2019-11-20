@@ -9,6 +9,25 @@
 #' @export
 #'
 #' @examples
+#' #Load data
+#' data(mtcars)
+#'
+#' #Create simple regression model
+#' fit = stats::lm(mpg ~ wt, data = mtcars)
+#'
+#' #Create new set of data for prediction
+#' new_wt = seq(min(mtcars$wt), max(mtcars$wt))
+#' new_data = data.frame(wt = new_wt)
+#'
+#' #Use get_pred to get predictions and confidence bounds
+#' mpg_pred = get_pred(fit, new_data)
+#'
+#' #Show output for predicted y
+#' mpg_pred$fHat
+#'
+#' #Show output for upper and lower bounds
+#' mpg_pred$ub
+#' mpg_pred$lb
 get_pred = function(fit, new_data){
   # Get number of columns of data
   p = ncol(new_data)
