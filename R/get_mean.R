@@ -1,13 +1,27 @@
 
 #' Sequence of Variable Means
 #'
-#' @param data - dataframe or matrix containing all variables in the model
+#' @param data - dataframe or matrix containing all variables in the model (must be all numeric)
 #' @param ng - length of the sequence
 #'
 #' @return - matrix of mean values
 #' @export
 #'
 #' @examples
+#' #Set length of x sequence
+#' n = 1001
+#'
+#' #Load data
+#' data(mtcars)
+#' #Show number of parameters in data
+#' ncol(mtcars)
+#'
+#' #Apply get_means to dataset
+#' z = get_mean(mtcars, n)
+#' #Show output
+#' z
+#' #Dimensions is n x (number of parameters)
+#' dim(z)
 get_mean = function(data, ng){
   # Get number of variables in data
   p = ncol(data)
@@ -18,7 +32,7 @@ get_mean = function(data, ng){
   # Loop over variables to sequence by mean
   for (i in 1:p){
     # Find mean of each variable and repeat that ng times
-    var_means[ , i] = rep(stats::mean(data[ , i]), ng)
+    var_means[ , i] = rep(mean(data[ , i]), ng)
   }
 
   # Return matrix of means
