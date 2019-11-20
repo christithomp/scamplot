@@ -8,6 +8,22 @@
 #' @export
 #'
 #' @examples
+#' #Set length of x sequence
+#' n = 100
+#'
+#' #Load data
+#' data(mtcars)
+#' #Show number of parameters in data
+#' ncol(mtcars)
+#'
+#' #Apply get_means to dataset
+#' z = get_X_seq(mtcars, n)
+#' #Show output
+#' z
+#' #Dimensions is n x (number of parameters)
+#' dim(z)
+#' #Show sequenced mpg in z compared to mpg in mtcars
+#' sort(mtcars[ , 1]); z[ , 1]
 get_X_seq = function(data, ng){
   # Get number of variables in data
   p = ncol(data)
@@ -22,5 +38,5 @@ get_X_seq = function(data, ng){
   }
 
   # Return matrix of equences spline terms
-  return(var_means)
+  return(X_seq)
 }
