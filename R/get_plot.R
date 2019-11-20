@@ -21,7 +21,7 @@ get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, type){
   expit <- function(x) return(1/(1 + exp(-x)))
 
   # Creat basic plot template
-  plot(0, type = 'n', xlab = x_lab[i], ylab = y_lab, xlim = c(0, 1), ylim = c(0, 1),
+  plot(0, type = 'n', xlab = x_lab, ylab = y_lab, xlim = c(0, 1), ylim = c(0, 1),
        type = "l", lwd = 2, main = title)
   # Check if plotting type = link
   if (type == "link"){
