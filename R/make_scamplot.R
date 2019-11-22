@@ -13,6 +13,22 @@
 #' @export
 #'
 #' @examples
+#' #Load the packages required
+#' library(HRW)
+#'
+#' #Load the data
+#' data(BostonMortgages)
+#'
+#' #Assign variables to be supplied to function
+#' y = BostonMortgages$deny
+#' smooth_terms = c("dir", "lvr")
+#' BostonMortgages$ccs = as.factor(BostonMortgages$ccs)
+#' linear_terms = c("ccs", "black", "pbcr", "self", "single")
+#' shape_type = c("cr", "cr")
+#' type = "link"
+#'
+#' make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type)
+#'
 make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, title = "Prediction Plot"){
   # Check if y is a column in the data
   if (y %in% colnames(data)){
@@ -27,7 +43,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
     stop(paste("Error: some of the linear_terms supplied are not variables in the data supplied"))
   }
   # Check if type is of the right form
-  if (type != "response" | type != "link"){
+  if (type != "response" & type != "link"){
     stop(paste("Error: type argument supplied is not a string that contains either link or response"))
   }
   # Check if title is string
@@ -45,6 +61,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   new_data = apply(data, 2, function(x) if(is.character(x)) as.numeric(as.factor(x)) else x)
 
   #Fit model for new_data
+
   # Get model call
   mdl = get_model(y, smooth_terms, linear_terms, shape_types)
   # Fit actual model
