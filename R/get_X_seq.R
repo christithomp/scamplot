@@ -2,7 +2,7 @@
 #' Sequence of Spline Terms
 #'
 #' @param data - matrix or dataframe containing only spline terms
-#' @param ng - length of sequence
+#' @param ng - optional length of sequence
 #'
 #' @return - matrix of sequenced spline terms
 #' @export
@@ -24,7 +24,7 @@
 #' dim(z)
 #' #Show sequenced mpg in z compared to mpg in mtcars
 #' sort(mtcars[ , 1]); z[ , 1]
-get_X_seq = function(data, ng){
+get_X_seq = function(data, ng = 1001){
   # Get number of variables in data
   p = ncol(data)
 
