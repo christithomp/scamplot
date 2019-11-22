@@ -9,7 +9,7 @@
 #' @param type - string indicating "link" or "response"
 #' @param title - optional string containing title of plot
 #'
-#' @return
+#' @return None
 #' @export
 #'
 #' @examples
