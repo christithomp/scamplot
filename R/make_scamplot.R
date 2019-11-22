@@ -47,7 +47,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
     stop(paste("Error: type argument supplied is not a string that contains either link or response"))
   }
   # Check if title is string
-  if(!is.string(title)){
+  if(!is.character(title)){
     stop(paste("Error: title argument supplied is not a string"))
   }
 
