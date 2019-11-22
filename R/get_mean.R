@@ -2,7 +2,7 @@
 #' Sequence of Variable Means
 #'
 #' @param data - dataframe or matrix containing all variables in the model (must be all numeric)
-#' @param ng - length of the sequence
+#' @param ng - optional length of the sequence
 #'
 #' @return - matrix of mean values
 #' @export
@@ -22,7 +22,7 @@
 #' z
 #' #Dimensions is n x (number of parameters)
 #' dim(z)
-get_mean = function(data, ng){
+get_mean = function(data, ng = 1001){
   # Get number of variables in data
   p = ncol(data)
 
