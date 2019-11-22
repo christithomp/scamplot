@@ -53,8 +53,8 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
 
   # Check if shape_type contains string of acceptable values
   shapes = c("cr", "mpi", "mpd", "mdcx", "micx", "mdcv", "micv")
-  if (any(!(shape_types %in% shapes))){
-    stop(paste("Error: shape_types supplied not supported in scam package"))
+  if (any(!(shape_type %in% shapes))){
+    stop(paste("Error: shape_type supplied not supported in scam package"))
   }
 
   # Convert all columns to numeric
@@ -63,7 +63,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   #Fit model for new_data
 
   # Get model call
-  mdl = get_model(y, smooth_terms, linear_terms, shape_types)
+  mdl = get_model(y, smooth_terms, linear_terms, shape_type)
   # Fit actual model
   fit = scam::scam(mdl, family = "binomial", data = new_data)
 
