@@ -35,6 +35,7 @@
 #' ub = fHat + qnorm(0.975) * pred_fit$se.fit
 #'
 #' #Plot the predictive plot
+#' get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "link")
 #' get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "response")
 get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, pred_type){
   # Get number of columns of data
