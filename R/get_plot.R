@@ -49,14 +49,14 @@ get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, pred_type){
   # Check if plotting type = link
   if (pred_type == "link"){
     # Create shaded confidence region
-    polygon(c(x, rev(x)), c(lb), rev(ub), col = 'palegreen', border = FALSE)
+    polygon(c(x, rev(x)), c(lb, rev(ub)), col = 'palegreen', border = FALSE)
     # Create line of function shape
     lines(x, fHat, col = "darkgreen", lwd = 2)
   }
   # Check if plotting type = response
   else{
     # Create shaded confidence region
-    polygon(c(x, rev(x)), c(expit(lb)), rev(expit(ub)), col = 'palegreen', border = FALSE)
+    polygon(c(x, rev(x)), c(expit(lb), rev(expit(ub))), col = 'palegreen', border = FALSE)
     # Create line of function shape
     lines(x, expit(fHat), col = "darkgreen", lwd = 2)
   }
