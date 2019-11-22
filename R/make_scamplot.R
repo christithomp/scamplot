@@ -94,6 +94,6 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
     Xpred = get_pred(fit, newdata)
 
     # Create plot of spline term
-    get_plot(xg, Xpred$fHat, Xpred$lb, Xpred$ub, title, xlab = x_name, ylab = y, type)
+    get_plot(xg, Xpred$fHat, Xpred$lb, Xpred$ub, title, x_lab = x_name, y_lab = y, type)
   }
 }
