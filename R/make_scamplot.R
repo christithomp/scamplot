@@ -20,7 +20,7 @@
 #' data(BostonMortgages)
 #'
 #' #Assign variables to be supplied to function
-#' y = BostonMortgages$deny
+#' y = "deny"
 #' smooth_terms = c("dir", "lvr")
 #' BostonMortgages$ccs = as.factor(BostonMortgages$ccs)
 #' linear_terms = c("ccs", "black", "pbcr", "self", "single")
