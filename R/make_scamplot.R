@@ -24,7 +24,7 @@
 #' smooth_terms = c("dir", "lvr")
 #' BostonMortgages$ccs = as.factor(BostonMortgages$ccs)
 #' linear_terms = c("ccs", "black", "pbcr", "self", "single")
-#' shape_type = c("cr", "cr")
+#' shape_type = c("cr", "mpi")
 #'
 #'#Use package to build predictive plot
 #' make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "link")
