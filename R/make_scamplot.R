@@ -31,7 +31,7 @@
 #'
 make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, title = "Prediction Plot"){
   # Check if y is a column in the data
-  if (y %in% colnames(data)){
+  if (!(y %in% colnames(data))){
     stop(paste("Error: y argument supplied is not a variable in the data supplied"))
   }
   # Check if smooth_terms are columns in data
