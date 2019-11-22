@@ -44,11 +44,11 @@ get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, pred_type){
   #Function to calculate expit of x
   expit <- function(x) return(1/(1 + exp(-x)))
 
-  # Creat basic plot template
-  plot(0, type = 'n', xlab = x_lab, ylab = y_lab, xlim = c(min(x), max(x)), ylim = c(0, 1),
-       lwd = 2, main = title)
   # Check if plotting type = link
   if (pred_type == "link"){
+    # Creat basic plot template
+    plot(0, type = 'n', xlab = x_lab, ylab = y_lab, xlim = c(min(x), max(x)), ylim = c(min(lb), max(ub)),
+         lwd = 2, main = title)
     # Create shaded confidence region
     polygon(c(x, rev(x)), c(lb, rev(ub)), col = 'palegreen', border = FALSE)
     # Create line of function shape
@@ -56,6 +56,9 @@ get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, pred_type){
   }
   # Check if plotting type = response
   else{
+    # Creat basic plot template
+    plot(0, type = 'n', xlab = x_lab, ylab = y_lab, xlim = c(min(x), max(x)), ylim = c(0, 1),
+         lwd = 2, main = title)
     # Create shaded confidence region
     polygon(c(x, rev(x)), c(expit(lb), rev(expit(ub))), col = 'palegreen', border = FALSE)
     # Create line of function shape
