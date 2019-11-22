@@ -58,14 +58,15 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   }
 
   # Convert all columns to numeric
-  new_data = apply(data, 2, function(x) if(is.character(x)) as.numeric(as.factor(x)) else x)
-
+  new_data = as.data.frame(apply(data[ , c(smooth_terms, linear_terms)], 2, function(x) if(is.character(x)) as.numeric(as.factor(x)) else x))
+  new_data$y = data[ , y]
+  names(new_data)[names(new_data) == 'y'] = y
   #Fit model for new_data
 
   # Get model call
   mdl = get_model(y, smooth_terms, linear_terms, shape_type)
   # Fit actual model
-  fit = scam::scam(mdl, family = "binomial", data = new_data)
+  fit = scam::scam(mdl, family = binomial, data = new_data)
 
   # Get means of all covariates
   mean_seq = get_means(new_data[ , c(smooth_terms, linear_terms)])
