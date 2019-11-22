@@ -9,7 +9,7 @@
 #' @param x_lab - string for title of x axis
 #' @param y_lab - string for title of y axis
 #' @param pred_type - string indicating "link" or "response"
-#' @return
+#' @return None
 #' @export
 #'
 #' @examples
