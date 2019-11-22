@@ -66,10 +66,11 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   # Get model call
   mdl = get_model(y, smooth_terms, linear_terms, shape_type)
   # Fit actual model
-  fit = scam::scam(mdl, family = binomial, data = new_data)
+  fit = scam::scam(as.formula(mdl), family = binomial, data = new_data)
 
   # Get means of all covariates
-  mean_seq = get_means(new_data[ , c(smooth_terms, linear_terms)])
+  mean_seq = as.data.frame(get_mean(new_data[ , c(smooth_terms, linear_terms)]))
+  names(mean_seq) = names(new_data[ , c(smooth_terms, linear_terms)])
   #Get sequence of all smooth terms
   X_seq = get_X_seq(new_data[ , smooth_terms])
   # Get number of smooth terms
@@ -79,13 +80,13 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
     # Create new data for prediction
 
     #Get spline term of interest
-    xg = X_seq[ , p_seq]
+    xg = X_seq[ , i]
     # Identify name of first spline term
-    x_name = smooth_terms[p_seq]
+    x_name = smooth_terms[i]
     # Make copy of mean_seq to manipulate
     new_mean_seq = mean_seq
     # Get rid of X column to add X sequence instead
-    new_mean_seq$x_name = NULL
+    new_mean_seq[ , x_name] = xg
 
     # Create new data for prediction
     newdata = data.frame(xg, new_mean_seq)
