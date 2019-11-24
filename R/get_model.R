@@ -17,6 +17,11 @@
 #'
 #' get_model(y, smooth_terms, linear_terms, shape_type)
 get_model = function(y, smooth_terms, linear_terms, shape_type){
+  # Check if shape_type is correct input
+  shapes = c("cr", "mpi", "mpd", "mdcx", "micx", "mdcv", "micv")
+  if (any(!(shape_type %in% shapes))){
+    stop(paste("Error: shape_type supplied not supported in scam package"))
+  }
   # Get numer of spline terms
   p_smooth = length(smooth_terms)
   # Get number of linear terms
