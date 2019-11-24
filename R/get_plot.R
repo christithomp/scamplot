@@ -38,6 +38,10 @@
 #' get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "link")
 #' get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "response")
 get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, pred_type){
+  #Check if pred_type is link or response
+  if (pred_type != 'type' & pred_type != 'response'){
+    stop(paste("Error: pred_type supplied is not 'link' or 'response'"))
+  }
   # Get number of columns of data
   p = ncol(data)
 
