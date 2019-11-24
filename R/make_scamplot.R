@@ -26,9 +26,9 @@
 #' linear_terms = c("ccs", "black", "pbcr", "self", "single")
 #' shape_type = c("cr", "mpi")
 #'
-#'#Use package to build predictive plot
+#' #Use package to build predictive plot
 #' make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "link")
-#'make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "response")
+#' make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "response")
 make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, title = "Prediction Plot"){
   # Check if y is a column in the data
   if (!(y %in% colnames(data))){
