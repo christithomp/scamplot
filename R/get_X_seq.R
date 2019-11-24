@@ -25,6 +25,14 @@
 #' #Show sequenced mpg in z compared to mpg in mtcars
 #' sort(mtcars[ , 1]); z[ , 1]
 get_X_seq = function(data, ng = 1001){
+  # Check if data is matrix or dataframe
+  if (!is.data.frame(data) & !is.matrix(data)){
+    stop(paste("Error: data supplied is not a matrix or dataframe"))
+  }
+  # Check if ng is a number
+  if (!is.numeric(ng)){
+    stop(paste("Error: ng suplied is not a number"))
+  }
   # Get number of variables in data
   p = ncol(data)
 
