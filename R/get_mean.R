@@ -23,6 +23,11 @@
 #' #Dimensions is n x (number of parameters)
 #' dim(z)
 get_mean = function(data, ng = 1001){
+  # Check if data is matrix or dataframe
+  if (!is.data.frame(data) & !is.matrix(data)){
+    stop(paste("Error: data supplied is not a matrix or dataframe"))
+  }
+
   # Get number of variables in data
   p = ncol(data)
 
