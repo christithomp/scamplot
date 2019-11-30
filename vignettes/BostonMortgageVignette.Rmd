@@ -21,4 +21,14 @@ The main functionality of this package is to facillitate the steps required to c
 
 We will walk through an example to demonstrate the use of this package.
 
+## Installation
+To install the package, copy and paste the following code into your R console:
+```{r}
+devtools::install_github("christithomp/scamplot")
+```
 
+## Usage
+To use the package, first you must load it into the environment:
+```{r setup, warning = F, message = F}
+library(scamplot)
+```
