@@ -79,3 +79,15 @@ library(mgcv)
 fit = gam(deny ~ black + s(dir) + s(lvr) + pbcr + self + single + ccs,
                       family = binomial, data = BostonMortgages)
 ```
+
+## Adding shape constraints to model
+Now that we have our model, we want to plot it to see what shape constraints (if any) we could add to better describe our data. We need to visualize the smooth terms of our data before we can add any constraints to them For this section, we can use the function make_scamplot in the R package scamplot.
+
+
+First, we create vectors for the arguments that scamplot desires. We need the name of our response variable, the names of our linear terms, and the names of our smooth terms and their shapes as separate input into the function.
+```{r}
+y = 'deny'
+linear_terms = c("ccs", "black", "pbcr", "self", "single")
+smooth_terms =  c("dir", "lvr")
+shape_type = c("cr", "cr")
+```
