@@ -112,3 +112,12 @@ make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type =
 ```
 
 With the new shape constraint, you can see that the logit plot becomes smoother and the probability plot has a higher peak on the right. This makes for a simpler interpretation since there aren't as many irreguarities in the smooth fitted line.
+
+
+The probability fit for the ratio of debt payments to the total income looks like a convex monotonically increasing function. We can change the shape term to account for this shape constraint and plot the new fit.
+```{r}
+shape_type = c("micx", "mpi")
+make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "response")
+```
+
+Adding in the shape constraint to the probability plot has made the line smoother, which may be more beneficial for interpretation purposes as well.
