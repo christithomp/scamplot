@@ -104,3 +104,11 @@ First, define the new shape type as a monotonic increasing function
 ```{r}
 shape_type = c("cr", "mpi")
 ```
+
+Next, call the make_scamplot() function to visualize the shape constraint.
+```{r}
+make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "link")
+make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "response")
+```
+
+With the new shape constraint, you can see that the logit plot becomes smoother and the probability plot has a higher peak on the right. This makes for a simpler interpretation since there aren't as many irreguarities in the smooth fitted line.
