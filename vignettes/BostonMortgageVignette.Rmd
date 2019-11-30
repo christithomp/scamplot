@@ -99,3 +99,8 @@ make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type =
 ```
 
 From these plots, it is clear that the ratio of the loan size to the assessed value of property could benefit from a monotonic increasing function in both the logit and probability model. Let's fit the model to see how this shape constraint compares.
+
+First, define the new shape type as a monotonic increasing function
+```{r}
+shape_type = c("cr", "mpi")
+```
