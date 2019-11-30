@@ -56,3 +56,19 @@ library(gam)
 fitInit = gam(deny ~ black  + dir + lvr + pbcr + self 
               + single + ccs, family = binomial, data = BostonMortgages)
 ```
+
+Next, we decide which variables to keep in the model and which to fit as splines.
+```{r, warning = F, message = F}
+stepFit = step.Gam(fitInit,scope =
+                      list("black" = ~1 + black,
+                           "pbcr" = ~1 + pbcr,
+                           "self"  = ~1 + self,
+                           "single" = ~1 + single,
+                           "ccs" = ~1 + ccs,
+                           "dir"  =  ~1 +  dir + s(dir,5),
+                           "lvr"  = ~1 + lvr + s(lvr,5)),
+                           family = binomial, data = BostonMortgages)
+print(names(stepFit$"model")[-1])
+detach("package:gam")
+```
+ 
