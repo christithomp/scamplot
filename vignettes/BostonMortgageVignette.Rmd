@@ -41,3 +41,10 @@ data(BostonMortgages)
 names(BostonMortgages)
 ```
 The predictors we are interested in for our analysis are dir (ratio of the debt payments to the total income), lvr (ratio of the loan size to the assessed value of the property), pbcr (a factor of applicant having public bad credit with levels yes and no), self (a factor of applicant being self-employes with levels yes and no), black (a factor of applicant being black iwth levels yes and no), ccs (credit score ranging from 1 to 6, where a low value is indicative of low credit risk), and Single (a factor of applicant being single with levels yes and no).
+
+
+We focus on families with a debt to income ratio less than 1.5 and make ccs a factor variable.
+```{r}
+BostonMortgages = BostonMortgages[BostonMortgages$dir < 1.5,]
+BostonMortgages$ccs = as.factor(BostonMortgages$ccs)
+```
