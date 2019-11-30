@@ -32,3 +32,12 @@ To use the package, first you must load it into the environment:
 ```{r setup, warning = F, message = F}
 library(scamplot)
 ```
+
+## Data description and preprocessing
+We want to see which variables have an impact on the relative risk of being denied for a mortgage. We will consider the risk of being denied a mortgage as a repsonse with several predictors.
+```{r, warning = F, message = F}
+library(HRW)
+data(BostonMortgages)
+names(BostonMortgages)
+```
+The predictors we are interested in for our analysis are dir (ratio of the debt payments to the total income), lvr (ratio of the loan size to the assessed value of the property), pbcr (a factor of applicant having public bad credit with levels yes and no), self (a factor of applicant being self-employes with levels yes and no), black (a factor of applicant being black iwth levels yes and no), ccs (credit score ranging from 1 to 6, where a low value is indicative of low credit risk), and Single (a factor of applicant being single with levels yes and no).
