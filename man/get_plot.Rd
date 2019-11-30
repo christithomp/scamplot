@@ -2,16 +2,16 @@
 % Please edit documentation in R/get_plot.R
 \name{get_plot}
 \alias{get_plot}
-\title{Title}
+\title{Predictive Plot for Model}
 \usage{
-get_plot(x, fHat, yrange, title, x_lab, y_lab)
+get_plot(x, fHat, lb, ub, title, x_lab, y_lab, pred_type)
 }
 \arguments{
-\item{x}{- dataframe or matrix containing spline terms}
+\item{x}{- vector containing spline terms}
 
-\item{fHat}{- matrix of prediction values}
+\item{fHat}{- vector of prediction values}
 
-\item{yrange}{- matrix containing minimum and maximum for y axis}
+\item{ub}{-vector containing upper bound of confidence interval}
 
 \item{title}{- string for title of the plot}
 
@@ -19,8 +19,39 @@ get_plot(x, fHat, yrange, title, x_lab, y_lab)
 
 \item{y_lab}{- string for title of y axis}
 
-\item{color}{- color of the line on the plot}
+\item{pred_type}{- string indicating "link" or "response"}
+
+\item{lb-}{vector containing  lower bound of confidence interval}
+}
+\value{
+None
 }
 \description{
-Title
+Predictive Plot for Model
+}
+\examples{
+# Load required packaged
+library(mgcv); library(HRW)
+# Load the data
+data(BostonMortgages)
+
+#Create model for data
+fit = gam(deny ~ black + s(dir), family = binomial, data = BostonMortgages)
+
+#Create data frame for prediction
+ng = 1001
+dir_seq = seq(min(BostonMortgages$dir), max(BostonMortgages$dir), length = ng)
+black = BostonMortgages$black
+black_seq = rep(unique(black)[which.max(tabulate(match(black, unique(black))))], ng)
+
+#Get predicted y values, lower bound, and upper bound of confidence interval
+newdata = data.frame(dir = dir_seq, black =black_seq)
+pred_fit = predict(fit, newdata, se.fit = T)
+fHat = pred_fit$fit
+lb = fHat - qnorm(0.975) * pred_fit$se.fit
+ub = fHat + qnorm(0.975) * pred_fit$se.fit
+
+#Plot the predictive plot
+get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "link")
+get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "response")
 }

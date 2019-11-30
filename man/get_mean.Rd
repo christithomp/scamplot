@@ -4,13 +4,32 @@
 \alias{get_mean}
 \title{Sequence of Variable Means}
 \usage{
-get_mean(data, ng)
+get_mean(data, ng = 1001)
 }
 \arguments{
-\item{data}{- dataframe or matrix containing all variables in the model}
+\item{data}{- dataframe or matrix containing all variables in the model (must be all numeric)}
 
-\item{ng}{- length of the sequence}
+\item{ng}{- optional length of the sequence}
+}
+\value{
+- matrix of mean values
 }
 \description{
 Sequence of Variable Means
+}
+\examples{
+#Set length of sequence
+n = 1001
+
+#Load data
+data(mtcars)
+#Show number of parameters in data
+ncol(mtcars)
+
+#Apply get_means to dataset
+z = get_mean(mtcars, n)
+#Show output
+z
+#Dimensions is n x (number of parameters)
+dim(z)
 }

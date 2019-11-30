@@ -4,13 +4,34 @@
 \alias{get_X_seq}
 \title{Sequence of Spline Terms}
 \usage{
-get_X_seq(data, ng)
+get_X_seq(data, ng = 1001)
 }
 \arguments{
 \item{data}{- matrix or dataframe containing only spline terms}
 
-\item{ng}{- length of sequence}
+\item{ng}{- optional length of sequence}
+}
+\value{
+- matrix of sequenced spline terms
 }
 \description{
 Sequence of Spline Terms
+}
+\examples{
+#Set length of x sequence
+n = 100
+
+#Load data
+data(mtcars)
+#Show number of parameters in data
+ncol(mtcars)
+
+#Apply get_means to dataset
+z = get_X_seq(mtcars, n)
+#Show output
+z
+#Dimensions is n x (number of parameters)
+dim(z)
+#Show sequenced mpg in z compared to mpg in mtcars
+sort(mtcars[ , 1]); z[ , 1]
 }
