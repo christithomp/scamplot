@@ -48,3 +48,11 @@ We focus on families with a debt to income ratio less than 1.5 and make ccs a fa
 BostonMortgages = BostonMortgages[BostonMortgages$dir < 1.5,]
 BostonMortgages$ccs = as.factor(BostonMortgages$ccs)
 ```
+
+## Initial model fit of data
+We now fit all the variables as linear terms to set up a baseline model.
+```{r, warning = F, message = F}
+library(gam)
+fitInit = gam(deny ~ black  + dir + lvr + pbcr + self 
+              + single + ccs, family = binomial, data = BostonMortgages)
+```
