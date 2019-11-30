@@ -91,3 +91,11 @@ linear_terms = c("ccs", "black", "pbcr", "self", "single")
 smooth_terms =  c("dir", "lvr")
 shape_type = c("cr", "cr")
 ```
+
+Now we can call the function to see the spline fits
+```{r}
+make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "link")
+make_scamplot(BostonMortgages, y, smooth_terms, linear_terms, shape_type, type = "response")
+```
+
+From these plots, it is clear that the ratio of the loan size to the assessed value of property could benefit from a monotonic increasing function in both the logit and probability model. Let's fit the model to see how this shape constraint compares.
