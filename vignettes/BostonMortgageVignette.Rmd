@@ -1,0 +1,24 @@
+---
+title: "scamplot Package Vignette"
+author: "E. Chrisiti Thompson"
+date: "11/24/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Test}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The main functionality of this package is to facillitate the steps required to create a predictive plot when working with shape-constrained additive models. Seeing the plot of a spline  is vital to undertsanding which shape constraint to use to better campture the data. 
+
+
+We will walk through an example to demonstrate the use of this package.
+
+
