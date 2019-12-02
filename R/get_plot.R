@@ -3,7 +3,7 @@
 #'
 #' @param x - vector containing spline terms
 #' @param fHat - vector of prediction values
-#' @param lb- vector containing  lower bound of confidence interval
+#' @param lb - vector containing  lower bound of confidence interval
 #' @param ub -vector containing upper bound of confidence interval
 #' @param title - string for title of the plot
 #' @param x_lab - string for title of x axis
