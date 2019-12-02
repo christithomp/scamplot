@@ -24,6 +24,7 @@ We will walk through an example to demonstrate the use of this package.
 ## Installation
 To install the package, copy and paste the following code into your R console:
 ```{r}
+library(devtools)
 devtools::install_github("christithomp/scamplot")
 ```
 
