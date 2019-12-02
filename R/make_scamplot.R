@@ -66,7 +66,7 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   # Get model call
   mdl = get_model(y, smooth_terms, linear_terms, shape_type)
   # Fit actual model
-  fit = scam::scam(as.formula(mdl), family = binomial, data = new_data)
+  fit = scam::scam(stats::as.formula(mdl), family = binomial, data = new_data)
 
   # Get means of all covariates
   mean_seq = as.data.frame(get_mean(new_data[ , c(smooth_terms, linear_terms)]))
