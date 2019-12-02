@@ -11,6 +11,8 @@ get_plot(x, fHat, lb, ub, title, x_lab, y_lab, pred_type)
 
 \item{fHat}{- vector of prediction values}
 
+\item{lb}{- vector containing  lower bound of confidence interval}
+
 \item{ub}{-vector containing upper bound of confidence interval}
 
 \item{title}{- string for title of the plot}
@@ -20,8 +22,6 @@ get_plot(x, fHat, lb, ub, title, x_lab, y_lab, pred_type)
 \item{y_lab}{- string for title of y axis}
 
 \item{pred_type}{- string indicating "link" or "response"}
-
-\item{lb-}{vector containing  lower bound of confidence interval}
 }
 \value{
 None
@@ -46,7 +46,7 @@ black_seq = rep(unique(black)[which.max(tabulate(match(black, unique(black))))],
 
 #Get predicted y values, lower bound, and upper bound of confidence interval
 newdata = data.frame(dir = dir_seq, black =black_seq)
-pred_fit = predict(fit, newdata, se.fit = T)
+pred_fit = predict(fit, newdata, se.fit = TRUE)
 fHat = pred_fit$fit
 lb = fHat - qnorm(0.975) * pred_fit$se.fit
 ub = fHat + qnorm(0.975) * pred_fit$se.fit
