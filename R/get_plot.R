@@ -29,7 +29,7 @@
 #'
 #' #Get predicted y values, lower bound, and upper bound of confidence interval
 #' newdata = data.frame(dir = dir_seq, black =black_seq)
-#' pred_fit = predict(fit, newdata, se.fit = T)
+#' pred_fit = predict(fit, newdata, se.fit = TRUE)
 #' fHat = pred_fit$fit
 #' lb = fHat - qnorm(0.975) * pred_fit$se.fit
 #' ub = fHat + qnorm(0.975) * pred_fit$se.fit
@@ -61,11 +61,11 @@ get_plot = function(x, fHat, lb, ub, title, x_lab, y_lab, pred_type){
   # Check if plotting type = response
   else{
     # Creat basic plot template
-    plot(0, type = 'n', xlab = x_lab, ylab = y_lab, xlim = c(min(x), max(x)), ylim = c(0, 1),
+    graphics::plot(0, type = 'n', xlab = x_lab, ylab = y_lab, xlim = c(min(x), max(x)), ylim = c(0, 1),
          lwd = 2, main = title)
     # Create shaded confidence region
-    polygon(c(x, rev(x)), c(expit(lb), rev(expit(ub))), col = 'palegreen', border = FALSE)
+    graphics::polygon(c(x, rev(x)), c(expit(lb), rev(expit(ub))), col = 'palegreen', border = FALSE)
     # Create line of function shape
-    lines(x, expit(fHat), col = "darkgreen", lwd = 2)
+    graphics::lines(x, expit(fHat), col = "darkgreen", lwd = 2)
   }
 }
