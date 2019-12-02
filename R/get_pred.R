@@ -41,8 +41,8 @@ get_pred = function(fit, new_data){
   pred = predict(fit, newdata = new_data, se = TRUE)
   fHat = pred$fit
   # Calculate lower and upper bound of plot
-  lb = fHat - qnorm(0.975) * pred$se.fit
-  ub = fHat + qnorm(0.975) * pred$se.fit
+  lb = fHat - stats::qnorm(0.975) * pred$se.fit
+  ub = fHat + stats::qnorm(0.975) * pred$se.fit
 
   # Return list containing fHat predictions, lower bound, and upper bound
   return(list(fHat = fHat, lb = lb, ub = ub))
