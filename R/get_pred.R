@@ -5,7 +5,6 @@
 #' @param new_data - dataframe or matrix used for prediction
 #'
 #' @return - list of predictions and lower and upper bounds of confidence interval
-#' @export
 #'
 #' @examples
 #' #Load data

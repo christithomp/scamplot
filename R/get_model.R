@@ -7,7 +7,6 @@
 #' @param shape_type - a vector of strings containing the shape constraints for the spline (in the same order as smooth_terms). Can only contain shape constraints that the scam function supports
 #'
 #' @return - string of call to model
-#' @export
 #'
 #' @examples
 #' y = "house_price"

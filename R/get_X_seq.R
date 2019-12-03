@@ -5,7 +5,6 @@
 #' @param ng - optional length of sequence
 #'
 #' @return - matrix of sequenced spline terms
-#' @export
 #'
 #' @examples
 #' #Set length of x sequence

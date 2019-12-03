@@ -10,7 +10,6 @@
 #' @param y_lab - string for title of y axis
 #' @param pred_type - string indicating "link" or "response"
 #' @return None
-#' @export
 #'
 #' @examples
 #' # Load required packaged
