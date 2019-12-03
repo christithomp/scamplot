@@ -4,8 +4,15 @@
 \alias{make_scamplot}
 \title{Create Prediction Plot of SCAM}
 \usage{
-make_scamplot(data, y, smooth_terms, linear_terms, shape_type, type,
-  title = "Prediction Plot")
+make_scamplot(
+  data,
+  y,
+  smooth_terms,
+  linear_terms,
+  shape_type,
+  type,
+  title = "Prediction Plot"
+)
 }
 \arguments{
 \item{data}{- data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model}
