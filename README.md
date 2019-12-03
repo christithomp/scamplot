@@ -20,3 +20,8 @@ To use this package, copy and paste the code below into your console:
 ```{r}
 library(scamplot)
 ```
+
+
+## Details
+
+For more information on this package, please access either the package documentations or vignette. Any questions, comments, or concerns may be voiced to the author.
