@@ -4,7 +4,8 @@
 \alias{get_plot}
 \title{Predictive Plot for Model}
 \usage{
-get_plot(x, fHat, lb, ub, title, x_lab, y_lab, pred_type)
+get_plot(x, fHat, lb, ub, title = "Prediction Plot", x_lab, y_lab,
+  pred_type)
 }
 \arguments{
 \item{x}{- vector containing spline terms}
@@ -15,7 +16,7 @@ get_plot(x, fHat, lb, ub, title, x_lab, y_lab, pred_type)
 
 \item{ub}{-vector containing upper bound of confidence interval}
 
-\item{title}{- string for title of the plot}
+\item{title}{- optional string for title of the plot}
 
 \item{x_lab}{- string for title of x axis}
 
@@ -52,6 +53,6 @@ lb = fHat - qnorm(0.975) * pred_fit$se.fit
 ub = fHat + qnorm(0.975) * pred_fit$se.fit
 
 #Plot the predictive plot
-get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "link")
-get_plot(dir_seq, fHat, lb, ub, "Prediction of DIR", x_lab = "dir", y_lab = "deny", pred_type = "response")
+get_plot(dir_seq, fHat, lb, ub, x_lab = "dir", y_lab = "deny", pred_type = "link")
+get_plot(dir_seq, fHat, lb, ub, x_lab = "dir", y_lab = "deny", pred_type = "response")
 }
