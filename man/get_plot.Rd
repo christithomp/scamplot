@@ -4,8 +4,7 @@
 \alias{get_plot}
 \title{Predictive Plot for Model}
 \usage{
-get_plot(x, fHat, lb, ub, title = "Prediction Plot", x_lab, y_lab,
-  pred_type)
+get_plot(x, fHat, lb, ub, title = "Prediction Plot", x_lab, y_lab, pred_type)
 }
 \arguments{
 \item{x}{- vector containing spline terms}
