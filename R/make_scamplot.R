@@ -69,10 +69,10 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   fit = scam::scam(stats::as.formula(mdl), family = 'binomial', data = new_data)
 
   # Get means of all covariates
-  mean_seq = as.data.frame(get_mean(new_data[ , c(smooth_terms, linear_terms)]))
+  mean_seq = as.data.frame(get_mean(new_data[ , c(smooth_terms, linear_terms), drop = FALSE]))
   names(mean_seq) = names(new_data[ , c(smooth_terms, linear_terms)])
   #Get sequence of all smooth terms
-  X_seq = get_X_seq(new_data[ , smooth_terms])
+  X_seq = get_X_seq(new_data[ , smooth_terms, drop = FALSE])
   # Get number of smooth terms
   p_seq = length(smooth_terms)
 
