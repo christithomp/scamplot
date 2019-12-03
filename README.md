@@ -24,4 +24,4 @@ library(scamplot)
 
 ## Details
 
-For more information on this package, please access either the package documentations or vignette. Any questions, comments, or concerns may be voiced to the author.
+For more information on this package, please access either the package documentations or [vignette](https://github.com/christithomp/scamplot/blob/master/vignettes/BostonMortgageVignette.Rmd). Any questions, comments, or concerns may be voiced to the author.
