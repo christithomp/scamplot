@@ -77,7 +77,7 @@ detach("package:gam")
  Now that we have our model arguments, we fit our final model.
 ```{r, warning = F, message = F}
 library(mgcv)
-fit = gam(deny ~ black + s(dir) + s(lvr) + pbcr + self + single + ccs,
+fit = mgcv::gam(deny ~ black + s(dir) + s(lvr) + pbcr + self + single + ccs,
                       family = binomial, data = BostonMortgages)
 ```
 
