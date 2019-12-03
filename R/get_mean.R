@@ -5,7 +5,6 @@
 #' @param ng - optional length of the sequence
 #'
 #' @return - matrix of mean values
-#' @export
 #'
 #' @examples
 #' #Set length of sequence
