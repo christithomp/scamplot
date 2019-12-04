@@ -9,7 +9,7 @@ First, the predictor variables are converted to numeric variables. Then the vari
 ## Installation
 
 To install this package, copy and paste the code below into your console:
-```{r}
+```r
 library(devtools)
 devtools::install_github("christithomp/scamplot")
 ```
@@ -17,10 +17,36 @@ devtools::install_github("christithomp/scamplot")
 ## Usage
 
 To use this package, copy and paste the code below into your console:
-```{r}
+```r
 library(scamplot)
 ```
 
+### Prediction Plot for Spline Terms
+
+```r
+HEIdata = read.csv(paste(getwd(),"/data/Stat689_HEI.csv", sep = ''), header = TRUE)
+names(HEIdata)
+```
+
+```r
+y = 'colorectal'
+smooth_terms = 'Sodium'
+linear_terms = 'gender'
+shape_type = 'cr'
+```
+
+```r
+make_scamplot(data = HEIdata, y = y, smooth_terms = smooth_terms, linear_terms = linear_terms, shape_type = shape_type, type = 'link')
+```
+
+![Logit Prediction Plot](images/Rplot.png)
+
+```r
+make_scamplot(data = HEIdata, y = y, smooth_terms = smooth_terms, linear_terms = linear_terms, shape_type = shape_type, type = 'response')
+```
+![Probability Prediction Plot](images/repsonse_plot.png)
+
+### Prediction Plot for Shape-Constrained Spline Terms
 
 ## Details
 
