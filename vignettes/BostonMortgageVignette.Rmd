@@ -2,7 +2,7 @@
 title: "scamplot Package Vignette"
 author: "E. Chrisiti Thompson"
 date: "11/24/2019"
-output: rmarkdown::html_vignette #github_document
+output: rmarkdown::html_vignette 
 vignette: >
   %\VignetteIndexEntry{BostonMortgageVignette}
   %\VignetteEngine{knitr::rmarkdown}
