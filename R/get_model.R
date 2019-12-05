@@ -15,7 +15,7 @@
 #' shape_type = c("mpi", "mpd")
 #'
 #' get_model(y, smooth_terms, linear_terms, shape_type)
-get_model = function(y, smooth_terms, linear_terms, shape_type){
+.get_model = function(y, smooth_terms, linear_terms, shape_type){
   # Check if shape_type is correct input
   shapes = c("cr", "mpi", "mpd", "mdcx", "micx", "mdcv", "micv")
   if (any(!(shape_type %in% shapes))){

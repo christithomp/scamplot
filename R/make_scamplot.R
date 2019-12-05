@@ -64,15 +64,15 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
   #Fit model for new_data
 
   # Get model call
-  mdl = get_model(y, smooth_terms, linear_terms, shape_type)
+  mdl = .get_model(y, smooth_terms, linear_terms, shape_type)
   # Fit actual model
   fit = scam::scam(stats::as.formula(mdl), family = 'binomial', data = new_data)
 
   # Get means of all covariates
-  mean_seq = as.data.frame(get_mean(new_data[ , c(smooth_terms, linear_terms), drop = FALSE]))
+  mean_seq = as.data.frame(.get_mean(new_data[ , c(smooth_terms, linear_terms), drop = FALSE]))
   names(mean_seq) = names(new_data[ , c(smooth_terms, linear_terms)])
   #Get sequence of all smooth terms
-  X_seq = get_X_seq(new_data[ , smooth_terms, drop = FALSE])
+  X_seq = .get_X_seq(new_data[ , smooth_terms, drop = FALSE])
   # Get number of smooth terms
   p_seq = length(smooth_terms)
 
@@ -91,9 +91,9 @@ make_scamplot = function(data, y, smooth_terms, linear_terms, shape_type, type, 
     # Create new data for prediction
     newdata = data.frame(xg, new_mean_seq)
     # Get fHat, ub, and lb for CI
-    Xpred = get_pred(fit, newdata)
+    Xpred = .get_pred(fit, newdata)
 
     # Create plot of spline term
-    get_plot(xg, Xpred$fHat, Xpred$lb, Xpred$ub, title, x_lab = x_name, y_lab = y, type)
+    .get_plot(xg, Xpred$fHat, Xpred$lb, Xpred$ub, title, x_lab = x_name, y_lab = y, type)
   }
 }

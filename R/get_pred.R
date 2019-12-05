@@ -26,7 +26,7 @@
 #' #Show output for upper and lower bounds
 #' mpg_pred$ub
 #' mpg_pred$lb
-get_pred = function(fit, new_data){
+.get_pred = function(fit, new_data){
   # Check if new_data is matrix or dataframe
   if (!is.data.frame(new_data) & !is.matrix(new_data)){
     stop(paste("Error: new_data supplied is not a matrix or dataframe"))
