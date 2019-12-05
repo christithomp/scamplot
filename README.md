@@ -23,11 +23,12 @@ library(scamplot)
 
 ### Prediction Plot for Spline Terms
 
+To properly utilize this package, you first need to import data to be fit to a logistic, shape-constrained model.
 ```r
 HEIdata = read.csv(paste(getwd(),"/data/Stat689_HEI.csv", sep = ''), header = TRUE)
-names(HEIdata)
 ```
 
+Once the data is loaded, specify the response, smooth predictor, and linear predictor variable names to be fit in the model as well as the shape constraints you would like to implement.
 ```r
 y = 'colorectal'
 smooth_terms = 'Sodium'
@@ -35,18 +36,19 @@ linear_terms = 'gender'
 shape_type = 'cr'
 ```
 
+Finally, call the function within the package to get the prediction plot you desire. You can specify `type = 'link'` for the logistic model:
 ```r
 make_scamplot(data = HEIdata, y = y, smooth_terms = smooth_terms, linear_terms = linear_terms, shape_type = shape_type, type = 'link')
 ```
 
-![Logit Prediction Plot](images/Rplot.png)
+![ ](images/link_plot.png)
 
+You can also specify `type = 'response'` to get the probability model:
 ```r
 make_scamplot(data = HEIdata, y = y, smooth_terms = smooth_terms, linear_terms = linear_terms, shape_type = shape_type, type = 'response')
 ```
-![Probability Prediction Plot](images/repsonse_plot.png)
+![ ](images/repsonse_plot.png)
 
-### Prediction Plot for Shape-Constrained Spline Terms
 
 ## Details
 
