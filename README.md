@@ -11,7 +11,7 @@ First, the predictor variables are converted to numeric variables. Then the vari
 To install this package, copy and paste the code below into your console:
 ```r
 library(devtools)
-devtools::install_github("christithomp/scamplot")
+devtools::install_github("christithomp/scamplot", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"))
 ```
 
 ## Usage

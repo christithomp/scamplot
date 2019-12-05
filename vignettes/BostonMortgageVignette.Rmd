@@ -25,7 +25,7 @@ We will walk through an example to demonstrate the use of this package.
 To install the package, copy and paste the following code into your R console:
 ```{r}
 library(devtools)
-devtools::install_github("christithomp/scamplot")
+devtools::install_github("christithomp/scamplot", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"))
 ```
 
 ## Usage
