@@ -34,8 +34,8 @@
 #' ub = fHat + qnorm(0.975) * pred_fit$se.fit
 #'
 #' #Plot the predictive plot
-#' get_plot(dir_seq, fHat, lb, ub, x_lab = "dir", y_lab = "deny", pred_type = "link")
-#' get_plot(dir_seq, fHat, lb, ub, x_lab = "dir", y_lab = "deny", pred_type = "response")
+#' .get_plot(dir_seq, fHat, lb, ub, x_lab = "dir", y_lab = "deny", pred_type = "link")
+#' .get_plot(dir_seq, fHat, lb, ub, x_lab = "dir", y_lab = "deny", pred_type = "response")
 .get_plot = function(x, fHat, lb, ub, title = 'Prediction Plot', x_lab, y_lab, pred_type){
   #Check if pred_type is link or response
   if (pred_type != 'link' & pred_type != 'response'){

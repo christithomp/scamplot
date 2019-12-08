@@ -29,7 +29,7 @@ new_wt = seq(min(mtcars$wt), max(mtcars$wt))
 new_data = data.frame(wt = new_wt)
 
 #Use get_pred to get predictions and confidence bounds
-mpg_pred = get_pred(fit, new_data)
+mpg_pred = .get_pred(fit, new_data)
 
 #Show output for predicted y
 mpg_pred$fHat

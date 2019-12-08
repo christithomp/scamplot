@@ -27,5 +27,5 @@ smooth_terms = c("sq_ft", "distance_from_work")
 linear_terms = c("num_bedrooms", "num_bathrooms")
 shape_type = c("mpi", "mpd")
 
-get_model(y, smooth_terms, linear_terms, shape_type)
+.get_model(y, smooth_terms, linear_terms, shape_type)
 }

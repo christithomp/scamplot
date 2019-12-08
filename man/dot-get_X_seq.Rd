@@ -27,7 +27,7 @@ data(mtcars)
 ncol(mtcars)
 
 #Apply get_means to dataset
-z = get_X_seq(mtcars, n)
+z = .get_X_seq(mtcars, n)
 #Show output
 z
 #Dimensions is n x (number of parameters)
