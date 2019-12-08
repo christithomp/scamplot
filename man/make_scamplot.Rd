@@ -33,7 +33,7 @@ make_scamplot(
 None
 }
 \description{
-Create Prediction Plot of SCAM
+This function will generate a prediction plot for logistic, shape constrained additive models. The package scam will fit the model specified by the variables supplied in this function, and a prediction plot with a shaded confidence interval will be generated from the data. Shape constraints include monotonic increasing and decreasing, convex increasing, convex decreasing, concave increasing, and concave decreasing.
 }
 \examples{
 #Load the packages required
