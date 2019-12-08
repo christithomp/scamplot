@@ -1,6 +1,7 @@
 
 #' Create Prediction Plot of SCAM
 #'
+#' @description This function will generate a prediction plot for logistic, shape constrained additive models. The package scam will fit the model specified by the variables supplied in this function, and a prediction plot with a shaded confidence interval will be generated from the data. Shape constraints include monotonic increasing and decreasing, convex increasing, convex decreasing, concave increasing, and concave decreasing.
 #' @param data - data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model
 #' @param y - string containing name of depednent variable in model
 #' @param smooth_terms - vector of strings containing names of independent variables to be fit as splines in the model
